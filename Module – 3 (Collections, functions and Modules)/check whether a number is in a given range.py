@@ -1,0 +1,20 @@
+#Write a Python function to check whether a number is in a given range
+
+def test_range(n):
+    if n in range(3,9):
+        print( " %s is in the range"%str(n))
+    else :
+        print("The number is outside the given range.")
+test_range(5)
+
+
+#
+n=int(input("Enter Number : "))
+
+if n in range(1,10):
+    print(" %s is in the range"%str(n))
+
+else:
+    print("Enter Number is outside the given range")
+
+        
