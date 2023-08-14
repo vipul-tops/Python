@@ -14,4 +14,7 @@ urlpatterns = [
     #seller
     path('seller-add-product/',views.seller_add_product,name='seller-add-product'),
     path('seller-view-product/',views.seller_view_product,name='seller-view-product'),
+    path('ajax/validate_email/',views.validate_email,name='validate_email'),
+    path('ajax/validate_oldpassword/',views.validate_oldpassword,name='validate_oldpassword'),
+    path('ajax/validate_newpassword/',views.validate_newpassword,name='validate_newpassword'),
 ]

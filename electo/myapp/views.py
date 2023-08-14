@@ -1,8 +1,35 @@
 from django.shortcuts import render,redirect
 from .models import User,Product
 import random
+import json
+from django.http import JsonResponse,HttpResponse
 
 # Create your views here.
+def validate_email(request):
+	email=request.GET.get('email')
+	data={
+		'is_taken':User.objects.filter(email__iexact=email).exists()
+	}
+	return JsonResponse(data)
+
+def validate_oldpassword(request):
+	oldpassword=request.GET.get('oldpassword')
+	user=User.objects.get(email=request.session['email'])
+	print(user.fname)
+	print(oldpassword)
+	data={
+		'is_taken':User.objects.filter(password=oldpassword,email=user.email).exists()
+	}
+	return JsonResponse(data)
+
+def validate_newpassword(request):
+	newpassword=request.GET.get('newpassword')
+	user=User.objects.get(email=request.session['email'])
+	data={
+		'is_taken':User.objects.filter(password=newpassword).exists()
+	}
+	return JsonResponse(data)
+
 def index(request):
 	products=list(Product.objects.all())
 	random_products = random.sample(products, min(len(products), 3))

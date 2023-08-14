@@ -1,0 +1,69 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Sign Up
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="form_container">
+            {% if msg %}
+              <b style="color:red;">{{msg}}</b>
+            {% endif %}
+            <form method="post" action="{% url 'signup' %} " enctype="multipart/form-data" >
+              {% csrf_token %}
+              <div >
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="fname" placeholder="First Name ">
+                </div>
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="lname" placeholder="Last Name ">
+                </div>
+              </div>
+                <div class="form-group col">
+                  <input type="email" class="form-control" name="email" placeholder="Email">
+                </div>
+              
+              <div>
+                <div class="form-group col">
+                  <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                </div>
+              </div>
+              <div class="form-group col">
+                <textarea name="address" class="form-control" name="address" placeholder="Address"></textarea>
+              </div>
+              <div class="form-group col">
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+              <div class="form-group col">
+                  <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password">
+                </div>
+              <div class="form-group col">
+                  <input type="file" class="form-control" name="profile_pic" placeholder="Profile Pic">
+                </div>
+              <div class="d-flex justify-content-center">
+                <input type="submit" name="action" value="Sign Up" class="btn btn-primary">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+
+</html>
+
+{% endblock %}
