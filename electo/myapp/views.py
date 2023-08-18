@@ -22,25 +22,43 @@ def validate_oldpassword(request):
 	}
 	return JsonResponse(data)
 
-def validate_newpassword(request):
-	newpassword=request.GET.get('newpassword')
-	user=User.objects.get(email=request.session['email'])
+def validate_product_name(request):
+	seller=User.objects.get(email=request.session['email'])
+	product_name=request.GET.get('product_name')
+	print(product_name)
 	data={
-		'is_taken':User.objects.filter(password=newpassword).exists()
+		'is_taken':Product.objects.filter(seller=seller,product_name=product_name).exists()
 	}
 	return JsonResponse(data)
+
+ # def validate_newpassword(request):
+ # 	newpassword=request.GET.get('newpassword')
+ # 	user=User.objects.get(email=request.session['email'])
+ # 	data={
+ # 		'is_taken':User.objects.filter(password=newpassword).exists()
+ # 	}
+ # 	return JsonResponse(data)
 
 def index(request):
 	products=list(Product.objects.all())
 	random_products = random.sample(products, min(len(products), 3))
-	random_product = random.sample(products, min(len(products), 3))
+	random_product = random.sample(products, min(len(products), 8))
 	random_productt = random.sample(products, min(len(products), 3))
-	return render(request,'index.html',{'products':products,'random_products':random_products,'random_product':random_product,'random_productt':random_productt})
+	try:
+		user=User.objects.get(email=request.session['email'])
+		if user.usertype=="buyer":
+			return render(request,'index.html',{'products':products,'random_products':random_products,'random_product':random_product,'random_productt':random_productt})
+
+		else:
+			return render(request,'seller-index.html',{'products':products,'random_products':random_products,'random_product':random_product,'random_productt':random_productt})
+
+	except:
+		return render(request,'index.html',{'products':products,'random_products':random_products,'random_product':random_product,'random_productt':random_productt})
 
 def seller_index(request):
 	products=list(Product.objects.all())
 	random_products = random.sample(products, min(len(products), 3))
-	random_product = random.sample(products, min(len(products), 3))
+	random_product = random.sample(products, min(len(products), 8))
 	random_productt = random.sample(products, min(len(products), 3))
 	return render(request,'seller-index.html',{'products':products,'random_products':random_products,'random_product':random_product,'random_productt':random_productt})
 
@@ -83,7 +101,6 @@ def login(request):
 					request.session['fname']=user.fname
 					request.session['lname']=user.lname
 					request.session['profile_pic']=user.profile_pic.url
-					#return render(request,'index.html')
 					return redirect('index')
 				else:
 					request.session['email']=user.email
@@ -184,3 +201,49 @@ def seller_view_product(request):
 	seller=User.objects.get(email=request.session['email'])
 	products=Product.objects.filter(seller=seller)
 	return render(request,'seller-view-product.html',{'products':products})
+
+def seller_product_details(request,pk):
+	product=Product.objects.get(pk=pk)
+	return render(request,'seller-product-details.html',{'product':product})
+
+def seller_edit_product(request,pk):
+	product=Product.objects.get(pk=pk)
+	if request.method=="POST":
+		product.product_category=request.POST['product_category']
+		product.product_name=request.POST['product_name']
+		product.product_price=request.POST['product_price']
+		product.product_desc=request.POST['product_desc']
+		try:
+			product.product_image=request.FILES['product_image']
+		except:
+			pass
+		product.save()
+		msg="Product Update Successsfully"
+		return render(request,'seller-edit-product.html',{'product':product,'msg':msg})
+	else:
+		return render(request,'seller-edit-product.html',{'product':product})
+
+def seller_delete_product(request,pk):
+	product=Product.objects.get(pk=pk)
+	product.delete()
+	return redirect('seller-view-product')
+
+def seller_view_laptop(request):
+	seller=User.objects.get(email=request.session['email'])
+	products=Product.objects.filter(seller=seller,product_category="Laptop")
+	return render(request,'seller-view-product.html',{'products':products})
+
+def seller_view_camera(request):
+	seller=User.objects.get(email=request.session['email'])
+	products=Product.objects.filter(seller=seller,product_category="Camera")
+	return render(request,'seller-view-product.html',{'products':products})
+
+def seller_view_accessories(request):
+	seller=User.objects.get(email=request.session['email'])
+	products=Product.objects.filter(seller=seller,product_category="Accessories")
+	return render(request,'seller-view-product.html',{'products':products})
+
+def shop(request):
+	seller=User.objects.get(email=request.session['email'])
+	products=Product.objects.filter(seller=seller)
+	return render(request,'shop.html',{'products':products})

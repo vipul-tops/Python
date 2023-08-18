@@ -34,7 +34,7 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
 	<body>
 		<!-- HEADER -->
@@ -43,9 +43,9 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +91 9664763874</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> thegiftsbag@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Sanand, Ahmedabad</a></li>
 					</ul>
 					{% if request.session.email %}
 					<ul class="header-links pull-right">
@@ -151,14 +151,7 @@
 								</div>
 
 								{% if request.session.email %}
-								<!-- <div>
-									<select class="input-select ">
-										<option value="0">{{request.session.fname}} {{request.session.lname}}</option>
-										<a href="#"><option value="1">Edit Profile</option></a>
-										<a href="#"><option value="1">Change Password</option></a>
-									</select>
-									<img src="{{request.session.profile_pic}}" height="45px" width="45px">
-								</div> -->
+								
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<span>{{request.session.fname}} {{request.session.lname}}</span>
@@ -209,7 +202,7 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
+						<li><a href="{% url 'shop' %}">Shop</a></li>
 						<li><a href="#">Categories</a></li>
 						<li><a href="#">Laptops</a></li>
 						<li><a href="#">Smartphones</a></li>
@@ -282,9 +275,9 @@
 								<h3 class="footer-title">About Us</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>Sanand, Ahmedabad</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+91 9664763874</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>thegiftsbag@email.com</a></li>
 								</ul>
 							</div>
 						</div>
