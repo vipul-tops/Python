@@ -69,10 +69,9 @@
 							<h3 class="title">New Products</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+									<li class="active"><a href="{% url 'laptop' %}">Laptops</a></li>
+									<li><a  href="{% url 'camera' %}">Cameras</a></li>
+									<li><a  href="{% url 'accessories' %}">Accessories</a></li>
 								</ul>
 							</div>
 						</div>
@@ -90,11 +89,7 @@
 										{% for i in products %}
 										<div class="product">
 											<div class="product-img">
-												<img src="{{i.product_image.url}}" alt="" height="250px" width="250px">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
+												<img src="{{i.product_image.url}}" alt="" height="250px" width="250px">		
 											</div>
 											<div class="product-body">
 												<p class="product-category">{{i.product_category}}</p>
@@ -114,7 +109,7 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<a href="{% url 'product-details' pk=i.pk %}"><button type="button" class="add-to-cart-btn"><i class="fa fa-eye"></i>Product Details</button></a>
 											</div>
 										</div>
 										{% endfor %}
@@ -170,8 +165,8 @@
 								</li>
 							</ul>
 							<h2 class="text-uppercase">hot deal this week</h2>
-							<p>New Collection Up to 50% OFF</p>
-							<a class="primary-btn cta-btn" href="#">Shop now</a>
+							<p>New Collection with Unique Speciality</p>
+							<a class="primary-btn cta-btn" href="{% url 'shop' %}">Shop now</a>
 						</div>
 					</div>
 				</div>
@@ -216,10 +211,7 @@
 										<div class="product">
 											<div class="product-img">
 												<img src="{{r.product_image.url}}" alt="" height="250px" width="250px">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
+												
 											</div>
 											<div class="product-body">
 												<p class="product-category">{{r.product_category}}</p>
@@ -239,7 +231,7 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<a href="{% url 'product-details' pk=r.pk %}"><button type="button" class="add-to-cart-btn"><i class="fa fa-eye"></i>Product Details</button></a>
 											</div>
 										</div>
 										{% endfor %}
@@ -300,7 +292,7 @@
 
 					<div class="col-md-6 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Most Like</h4>
 							
 						</div>
 

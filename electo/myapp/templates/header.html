@@ -100,10 +100,10 @@
 								
 								<!-- Wishlist -->
 								<div>
-									<a href="#">
+									<a href="{% url 'wishlist' %}">
 										<i class="fa fa-heart-o"></i>
 										<span>Your Wishlist</span>
-										<div class="qty">2</div>
+										<div class="qty">{{request.session.wishlist_count}}</div>
 									</a>
 								</div>
 								<!-- /Wishlist -->
@@ -161,7 +161,6 @@
 											<div>
 													<a href="{% url 'edit-profile' %}">Edit Profile</a>
 											</div>
-
 											<div >
 													<a href="{% url 'change-password' %}">Change Password</a>
 											</div>
@@ -173,14 +172,6 @@
 								{% endif %}	
 								<!-- /Cart -->
 
-								<!-- Menu Toogle -->
-								<div class="menu-toggle">
-									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
-									</a>
-								</div>
-								<!-- /Menu Toogle -->
 							</div>
 						</div>
 						<!-- /ACCOUNT -->
@@ -204,10 +195,9 @@
 						<li class="active"><a href="{% url 'index' %}">Home</a></li>
 						<li><a href="{% url 'shop' %}">Shop</a></li>
 						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<li><a href="{% url 'laptop' %}">Laptops</a></li>
+						<li><a href="{% url 'camera' %}">Cameras</a></li>
+						<li><a href="{% url 'accessories' %}">Accessories</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>

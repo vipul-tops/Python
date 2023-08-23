@@ -11,6 +11,17 @@ urlpatterns = [
     path('change-password/',views.change_password,name='change-password'),
     path('edit-profile/',views.edit_profile,name='edit-profile'),
     path('shop/',views.shop,name='shop'),
+    path('product-details/<int:pk>/',views.product_details,name='product-details'),
+    path('add-to-wishlist/<int:pk>/',views.add_to_wishlist,name='add-to-wishlist'),
+    path('wishlist/',views.wishlist,name='wishlist'),
+    path('remove-from-wishlist/<int:pk>/',views.remove_from_wishlist,name='remove-from-wishlist'),
+
+
+    path('laptop/',views.laptop,name='laptop'),
+    path('camera/',views.camera,name='camera'),
+    path('accessories/',views.accessories,name='accessories'),
+    path('store/',views.store,name='store'),
+
 
     #seller
     path('seller-add-product/',views.seller_add_product,name='seller-add-product'),
