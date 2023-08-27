@@ -3,8 +3,8 @@ from .models import Employee
 # Create your views here.
 
 def test(request):
-	emp = Employee.objects.all()
-	return render(request,'test.html',{'emp':emp})
+	emps = Employee.objects.all()
+	return render(request,'test.html',{'emps':emps})
 
 def add_emp(request):
     if request.method=="POST":
@@ -18,4 +18,9 @@ def add_emp(request):
     else:
         return render(request,'test.html')
 
+def delete_emp(request,pk):
+    emp=Employee.objects.get(pk=pk)
+    print(emp)
+    emp.delete()
 
+    return redirect('test')
