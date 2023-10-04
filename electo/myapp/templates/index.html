@@ -16,7 +16,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>Laptop<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'laptop' %}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -30,7 +30,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>Accessories<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'accessories' %}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>Cameras<br>Collection</h3>
-								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+								<a href="{% url 'camera' %}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -281,6 +281,10 @@
 										<h3 class="product-name"><a href="#">{{rp.product_name}}</a></h3>
 										<h4 class="product-price">{{rp.product_price}}</h4>
 									</div>
+
+									<div class="add-to-cart">
+												<a href="{% url 'product-details' pk=rp.pk %}"><button type="button" class="primary-btn cta-btn">Product Details</button></a>
+											</div>
 								</div>
 								{% endfor %}
 								<!-- /product widget -->
@@ -309,6 +313,9 @@
 										<h3 class="product-name"><a href="#">{{rpt.product_name}}</a></h3>
 										<h4 class="product-price">{{rpt.product_price}}</h4>
 									</div>
+									<div class="add-to-cart">
+												<a href="{% url 'product-details' pk=rpt.pk %}"><button type="button" class="primary-btn cta-btn">Product Details</button></a>
+											</div>
 								</div>
 								{% endfor %}
 								<!-- /product widget -->

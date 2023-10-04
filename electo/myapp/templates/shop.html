@@ -1,8 +1,13 @@
 {% extends 'header.html' %}
 {% load static %}
 {% block content %}
+<<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<body>
+</head>
+<body>
 		
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
@@ -37,134 +42,62 @@
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="category-1">
-									<label for="category-1">
-										<span></span>
-										Laptops
-										<small>(120)</small>
-									</label>
+									<label for="category-1">Laptops</label>
 								</div>
-
 								<div class="input-checkbox">
-									<input type="checkbox" id="category-2">
-									<label for="category-2">
-										<span></span>
-										Smartphones
-										<small>(740)</small>
-									</label>
+									<label for="category-1">Camera</label>
 								</div>
-
 								<div class="input-checkbox">
-									<input type="checkbox" id="category-3">
-									<label for="category-3">
-										<span></span>
-										Cameras
-										<small>(1450)</small>
-									</label>
+									<label for="category-1">Accessories</label>
 								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-4">
-									<label for="category-4">
-										<span></span>
-										Accessories
-										<small>(578)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-5">
-									<label for="category-5">
-										<span></span>
-										Laptops
-										<small>(120)</small>
-									</label>
-								</div>
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-6">
-									<label for="category-6">
-										<span></span>
-										Smartphones
-										<small>(740)</small>
-									</label>
-								</div>
+								
 							</div>
 						</div>
 						<!-- /aside Widget -->
 
-						<!-- aside Widget -->
-						<div class="aside">
-							<h3 class="aside-title">Price</h3>
-							<div class="price-filter">
-								<div id="price-slider"></div>
-								<div class="input-number price-min">
-									<input id="price-min" type="number">
-									<span class="qty-up">+</span>
-									<span class="qty-down">-</span>
-								</div>
-								<span>-</span>
-								<div class="input-number price-max">
-									<input id="price-max" type="number">
-									<span class="qty-up">+</span>
-									<span class="qty-down">-</span>
-								</div>
-							</div>
-						</div>
-						<!-- /aside Widget -->
-
+						
 						<!-- aside Widget -->
 						<div class="aside">
 							<h3 class="aside-title">Brand</h3>
 							<div class="checkbox-filter">
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-1">
-									<label for="brand-1">
-										<span></span>
-										SAMSUNG
-										<small>(578)</small>
-									</label>
+									<!-- <input type="checkbox" id="brand-1"> -->
+									<label for="brand-1">SAMSUNG</label>
 								</div>
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-2">
-									<label for="brand-2">
-										<span></span>
-										LG
-										<small>(125)</small>
-									</label>
+									<!-- <input type="checkbox" id="brand-1"> -->
+									<label for="brand-1">LENOVO</label>
 								</div>
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-3">
-									<label for="brand-3">
-										<span></span>
-										SONY
-										<small>(755)</small>
-									</label>
+									<!-- <input type="checkbox" id="brand-1"> -->
+									<label for="brand-1">HP</label>
 								</div>
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-4">
-									<label for="brand-4">
-										<span></span>
-										SAMSUNG
-										<small>(578)</small>
-									</label>
+									<label for="brand-1">SONY</label>
 								</div>
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-5">
-									<label for="brand-5">
-										<span></span>
-										LG
-										<small>(125)</small>
-									</label>
+									<label for="brand-1">DELL</label>
 								</div>
 								<div class="input-checkbox">
-									<input type="checkbox" id="brand-6">
-									<label for="brand-6">
-										<span></span>
-										SONY
-										<small>(755)</small>
-									</label>
+									<label for="brand-1">APPLE</label>
 								</div>
+								<div class="input-checkbox">
+									<label for="brand-1">NIKON</label>
+								</div>
+								<div class="input-checkbox">
+									<label for="brand-1">CANON</label>
+								</div>
+								<div class="input-checkbox">
+									<label for="brand-1">PANASONIC</label>
+								</div>
+								<div class="input-checkbox">
+									<label for="brand-1">ASUS</label>
+								</div>
+								<div class="input-checkbox">
+									<label for="brand-1">REDMI</label>
+								</div>
+
+								
 							</div>
 						</div>
 						<!-- /aside Widget -->
@@ -173,31 +106,6 @@
 
 					<!-- STORE -->
 					<div id="store" class="col-md-9">
-						<!-- store top filter -->
-						<div class="store-filter clearfix">
-							<div class="store-sort">
-								<label>
-									Sort By:
-									<select class="input-select">
-										<option value="0">Popular</option>
-										<option value="1">Position</option>
-									</select>
-								</label>
-
-								<label>
-									Show:
-									<select class="input-select">
-										<option value="0">20</option>
-										<option value="1">50</option>
-									</select>
-								</label>
-							</div>
-							<ul class="store-grid">
-								<li class="active"><i class="fa fa-th"></i></li>
-								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
-							</ul>
-						</div>
-						<!-- /store top filter -->
 
 						<!-- store products -->
 						<div class="row">
@@ -251,6 +159,50 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
+	<script>
+	$(document).ready(function() {
+    // Get references to the DOM elements
+    var $priceSlider = $("#price-slider");
+    var $priceMin = $("#price-min");
+    var $priceMax = $("#price-max");
+
+    // Set the initial values for the price range
+    var minPrice = parseFloat($priceMin.val()) || 0;
+    var maxPrice = parseFloat($priceMax.val()) || 1000;
+
+    // Initialize the price slider
+    $priceSlider.slider({
+        range: true,
+        min: 0,
+        max: 1000,  // Adjust this to match your price range
+        values: [minPrice, maxPrice],
+        slide: function(event, ui) {
+            // Update the input fields as the slider is moved
+            $priceMin.val(ui.values[0]);
+            $priceMax.val(ui.values[1]);
+        }
+    });
+
+    // Handle changes in the input fields
+    $priceMin.change(function() {
+        var newMin = parseFloat($priceMin.val()) || 0;
+        var currentMax = $priceSlider.slider("values", 1);
+
+        if (newMin < currentMax) {
+            $priceSlider.slider("values", 0, newMin);
+        }
+    });
+
+    $priceMax.change(function() {
+        var newMax = parseFloat($priceMax.val()) || 1000;
+        var currentMin = $priceSlider.slider("values", 0);
+
+        if (newMax > currentMin) {
+            $priceSlider.slider("values", 1, newMax);
+        }
+    });
+});
+	</script>
 
 
 	</body>
